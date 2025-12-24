@@ -1,0 +1,45 @@
+[package]
+name = "vara-eth-demo"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "Package allowing to build WASM binary for the program and IDL file for it"
+repository.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[dependencies]
+sails-rs = { workspace = true, features = ["ethexe"] }
+vara-eth-demo-app.workspace = true
+
+[dev-dependencies]
+sails-rs = { workspace = true, features = ["ethexe", "gtest", "gclient"] }
+tokio = { workspace = true, features = ["rt", "macros"] }
+vara-eth-demo-app.workspace = true
+vara-eth-demo-client.workspace = true
+
+[build-dependencies]
+sails-rs = { workspace = true, features = ["ethexe", "build"] }
+vara-eth-demo-app.workspace = true
+
+[workspace]
+resolver = "3"
+members = ["app", "client"]
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Gear Foundation"]
+edition = "2024"
+rust-version = "1.91"
+repository = "https://github.com/gear-foundation/vara-eth-demo"
+license = "MIT"
+keywords = ["gear", "sails", "smart-contracts", "wasm", "no-std"]
+categories = ["cryptography::cryptocurrencies", "no-std", "wasm"]
+
+[workspace.dependencies]
+sails-rs = "0.10.2"
+tokio = "1.48.0"
+vara-eth-demo-app = { version = "0.1.0", path = "app" }
+vara-eth-demo-client = { version = "0.1.0", path = "client" }

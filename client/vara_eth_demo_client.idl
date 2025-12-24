@@ -1,0 +1,23 @@
+constructor {
+  Init : (counter: u32);
+};
+
+service Counter {
+  Add : (value: u32) -> u32;
+  Sub : (value: u32) -> u32;
+  query Value : () -> u32;
+
+  events {
+    Added: struct {
+      /// #[indexed]
+      source: actor_id,
+      value: u32,
+    };
+    Subtracted: struct {
+      /// #[indexed]
+      source: actor_id,
+      value: u32,
+    };
+  }
+};
+
