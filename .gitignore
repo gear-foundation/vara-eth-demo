@@ -1,5 +1,6 @@
 .binpath
 .DS_Store
 .vscode
+!ethereum/.vscode/
 .idea
 /target
